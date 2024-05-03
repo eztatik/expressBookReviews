@@ -30,6 +30,22 @@ public_users.get("/", function (req, res) {
   return res.status(300).json({ message: "Yet to be implemented" });
 });
 
+//Code for task 10 to review - no screenshot was asked for this task
+function findBooks(books) {
+  return new Promise((resolve, reject) => {
+    if (books) {
+      resolve(books);
+    } else {
+      reject("error finding books");
+    }
+  });
+}
+public_users.get("/", async function (req, res) {
+  let allbooks = await findBooks(books);
+  res.send(allbooks);
+});
+//end of task 10
+
 // Get book details based on ISBN
 public_users.get("/isbn/:isbn", function (req, res) {
   //Write your code here
